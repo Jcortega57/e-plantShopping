@@ -1,8 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import cartReducer from './CartSlice';
- const store = configureStore({
+
+// --- Change this line to include the .jsx extension ---
+import cartReducer from './CartSlice.jsx'; // Corrected import path
+// --- End change ---
+
+const store = configureStore({
     reducer: {
         cart: cartReducer,
     },
 });
-export default store
+
+export default store;

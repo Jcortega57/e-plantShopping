@@ -4,6 +4,9 @@ import ProductList from './ProductList';
 import './App.css';
 import AboutUs from './AboutUs';
 
+import { Provider } from 'react-redux';
+import store from './store'; // Make sure this path is correct for your store.js file
+
 function App() {
   
   const [showProductList, setShowProductList] = useState(false);
@@ -17,6 +20,8 @@ function App() {
   };
 
   return (
+    // --- WRAP YOUR ENTIRE APPLICATION WITH THE REDUX PROVIDER ---
+<Provider store={store}> 
     <div className="app-container">
       <div className={`landing-page ${showProductList ? 'fade-out' : ''}`}>
         <div className="background-image"></div>
@@ -40,6 +45,10 @@ function App() {
         <ProductList onHomeClick={handleHomeClick}/>
       </div>
     </div>
+
+</Provider>
+// --- END PROVIDER WRAP ---
+
   );
 }
 
