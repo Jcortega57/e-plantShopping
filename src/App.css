@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .landing-page {
@@ -34,16 +34,27 @@
   backdrop-filter: blur(4px);
   background-color: rgba(0,0,0,0.5);
   gap: 20px;
+
+  padding: 0 40px; /* 0 top/bottom, 40px left/right */
+  
 }
 
 .landing_content {
  margin-top: 430px;
   margin-left: 100px;
   transform: translate(-50%, -50%);
+
   z-index: 1;
   text-align: center;
+  flex: 1; /* agregado */
+  max-width: 450px; /* Agregado Limits its maximum width on larger screens */
+ 
+ 
   /* background-color: red; */
   width: 400px;
+  padding: 20px; /* Internal spacing */
+  box-sizing: border-box; /* added*/
+
   height: 400px;
   display: flex;
   align-items: center;
