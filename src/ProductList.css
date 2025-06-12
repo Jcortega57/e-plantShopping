@@ -255,3 +255,52 @@ body {
         text-align: center; /* Align text to the center */
       }
   }
+
+  /* ProductList.css */
+
+/* Add these styles for the cart icon and badge */
+
+/* Container for the SVG icon and the badge */
+.cart-icon-container {
+    position: relative; /* This is crucial for positioning the badge absolutely relative to this container */
+    display: inline-block; /* Allows the h1 to wrap content and position correctly */
+    height: 68px; /* Match SVG height */
+    width: 68px; /* Match SVG width */
+    /* Remove any default h1 margins/padding that might interfere */
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for the cart item count badge */
+.cart-item-count {
+    background-color: red;
+    color: white;
+    border-radius: 50%; /* Makes it a perfect circle */
+    padding: 2px 6px;
+    font-size: 0.6em; /* Adjust relative to parent's font size as needed */
+    position: absolute; /* Position relative to .cart-icon-container */
+    top: -8px;    /* Adjust this value to move the badge up/down */
+    right: -8px;  /* Adjust this value to move the badge left/right */
+    z-index: 1;   /* Ensure the badge is displayed above other elements */
+    min-width: 18px; /* Ensures the circle is large enough even for single digits */
+    text-align: center; /* Centers the number horizontally */
+    line-height: 1.2; /* Helps with vertical centering of the number inside the circle */
+    box-sizing: border-box; /* Ensures padding is included in the element's total size */
+    display: flex; /* Use flexbox to perfectly center the number vertically and horizontally */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ensure the SVG inside the h1 behaves correctly and doesn't add extra space */
+.cart-icon-container svg {
+    display: block; /* Prevents extra space below the SVG */
+}
+
+/* You might also want to ensure no parent elements have overflow: hidden that would clip the badge.
+   Check your App.css or global styles for rules like:
+   body, html, #root {
+       overflow: hidden; // If this is present, it could cause clipping
+   }
+   If you find it, consider changing it to `overflow-x: hidden;` or `overflow: auto;`
+   depending on your overall layout needs, or remove it entirely if not strictly necessary.
+*/

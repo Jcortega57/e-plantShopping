@@ -300,7 +300,8 @@ function ProductList({ onHomeClick }) {
                 <div style={styleObjUl}>
                     <div> <a href="#" onClick={(e) => handlePlantsClick(e)} style={styleA}>Plants</a></div>
                     <div> <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}>
-                        <h1 className='cart'>
+                        {/* Apply the new class for the cart icon container */}
+                        <h1 className='cart-icon-container'>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="68" width="68">
                                 <rect width="156" height="156" fill="none"></rect>
                                 <circle cx="80" cy="216" r="12"></circle>
@@ -309,18 +310,7 @@ function ProductList({ onHomeClick }) {
                             </svg>
                             {/* Display cart count here */}
                             {totalItemsInCart > 0 && (
-                                <span className="cart-item-count" style={{
-                                    backgroundColor: 'red',
-                                    color: 'white',
-                                    borderRadius: '50%',
-                                    padding: '2px 6px',
-                                    fontSize: '0.6em',
-                                    position: 'absolute',
-                                    top: '0',
-                                    right: '0',
-                                    transform: 'translate(50%, -50%)',
-                                    zIndex: 1
-                                }}>
+                                <span className="cart-item-count"> {/* Now using the CSS class */}
                                     {totalItemsInCart}
                                 </span>
                             )}
@@ -367,4 +357,4 @@ function ProductList({ onHomeClick }) {
     );
 }
 
-export default ProductList
+export default ProductList;
