@@ -1,6 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-// THIS LINE IS CRITICAL: Imports the named exports from CartSlice.jsx
+import { useSelector, useDispatch } from 'react-redux'; // Line 2: Ensure this is correctly imported
 import { removeItem, updateQuantity } from './CartSlice.jsx'; // Ensure .jsx extension matches the actual filename
 import './CartItem.css';
 
@@ -26,13 +25,17 @@ const CartItem = ({ onContinueShopping }) => {
 
   /**
    * Handles the "Continue Shopping" button click.
-   * Calls the onContinueShopping prop function.
+   * Calls the onContinueShopping prop function passed from the parent component.
    * @param {Event} e - The click event.
    */
   const handleContinueShopping = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevents the default action of the button (e.g., form submission)
+    console.log("Continue Shopping button clicked. Attempting to call onContinueShopping prop.");
     if (onContinueShopping) {
-      onContinueShopping();
+      onContinueShopping(e); // <--- Pass the event 'e' here!
+      console.log("onContinueShopping prop was called.");
+    } else {
+      console.log("onContinueShopping prop is undefined or null. Cannot continue shopping.");
     }
   };
 
